@@ -1,0 +1,15 @@
+h1 {
+    padding-left: 250px;
+    position: relative;
+    background-color: burlywood;
+    color: red;
+}
+
+.highlightable{
+    background-color: dimgray;
+    color: violet;
+}
+
+.highlighted {
+    text-decoration: underline;
+}
