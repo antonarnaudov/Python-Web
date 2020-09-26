@@ -1,0 +1,24 @@
+{% extends 'shared/base.html' %}
+
+{% load static %}
+
+{% block page_styles %}
+    <link rel="stylesheet" href="{% static 'css/routelcom.css' %}">
+{% endblock %}
+
+{% block site_title%}
+    {{ title }}
+{% endblock %}
+
+{% block site_main_content %}
+    <nav>
+        <ul>
+            <li><a href="routelcom/dhl_services.html">DHL Services</a></li>
+            <li><a href="routelcom/easypay.html">EasyPay</a></li>
+            <li><a href="routelcom/luggage_storage.html">Luggage Storage</a></li>
+            <li><a href="routelcom/rent_a_laptop.html">Rent a Laptop</a></li>
+            <li><a href="routelcom/about_us.html">About Us</a></li>
+        </ul>
+    </nav>
+
+{% endblock %}
