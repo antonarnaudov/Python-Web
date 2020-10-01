@@ -1,0 +1,37 @@
+{% extends 'shared/site.html' %}
+{% load static %}
+
+
+{% block title %}
+    Petstagram
+{% endblock %}
+
+
+{% block main-content %}
+    <section>
+        <div class="container">
+            <div class="container-inside">
+
+                <img src="{% static 'images/pets_pic.png' %}" alt="pets img" class="pets_pic">
+
+                <h1>Welcome to Petstagram</h1>
+                <p>Share your pets photos</p>
+
+                <hr class="line" style="border: 0; border-top: 1px solid rgba(0,0,0,.1);">
+
+                <div class="form-container">
+                    <div>Already have an account?
+                        <button>sign in</button>
+                    </div>
+                    <div>
+                        Do not have an account?
+                        <button>
+                            sign up
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

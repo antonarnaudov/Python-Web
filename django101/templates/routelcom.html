@@ -4,6 +4,10 @@
 
 {% block page_styles %}
     <link rel="stylesheet" href="{% static 'css/routelcom.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
+
+{% block page_scripts %}
 {% endblock %}
 
 {% block site_title %}
@@ -11,14 +15,80 @@
 {% endblock %}
 
 {% block site_main_content %}
+
     <nav>
-        <ul>
-            <li><a href="routelcom/dhl_services.html">DHL Services</a></li>
-            <li><a href="routelcom/easypay.html">EasyPay</a></li>
-            <li><a href="routelcom/luggage_storage.html">Luggage Storage</a></li>
-            <li><a href="routelcom/rent_a_laptop.html">Rent a Laptop</a></li>
-            <li><a href="routelcom/about_us.html">About Us</a></li>
-        </ul>
+        <section class='nav-container'>
+
+            <aside class="logo"><img src="{% static 'images/Routelcom_logo.png' %}" alt="Routelcom logo"></aside>
+
+            <ul>
+                <li><a href="routelcom/dhl_services.html">DHL Services</a></li>
+                <li><a href="routelcom/easypay.html">EasyPay</a></li>
+                <li><a href="routelcom/luggage_storage.html">Luggage Storage</a></li>
+                <li><a href="routelcom/rent_a_laptop.html">Rent a Laptop</a></li>
+                <li><a href="routelcom/about_us.html">About Us</a></li>
+            </ul>
+
+            <aside class="menu">
+                <div class="menu-content">
+                    <i class="fa fa-unlock-alt"></i><a href="#" id="Login">Login</a> | <i class="fa fa-user"></i><a
+                        href="#">Register</a>
+                </div>
+
+                <div class="arrow-up"></div>
+            </aside>
+
+            <div class="login-form">
+                <form>
+                    <div>
+                        <label for="">Username</label>
+                    </div>
+
+                    <div>
+                        <label>
+                            <input type="text" placeholder="Username" required/>
+                        </label>
+                    </div>
+
+                    <div>
+                        <label for="">Password</label>
+                    </div>
+
+                    <div>
+                        <label>
+                            <input type="password" placeholder="Password" required/>
+                        </label>
+                    </div>
+
+                    <div>
+                        <input type="submit" value="Log In">
+                    </div>
+                    <div><a href="#">Lost Your Password?</a></div>
+                </form>
+            </div>
+        </section>
     </nav>
 
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            const arrow = $(".arrow-up");
+            const form = $(".login-form");
+            let status = false;
+
+            $('#Login').click(function (event) {
+                event.preventDefault();
+                if (status === false) {
+                    arrow.fadeIn();
+                    form.fadeIn();
+                    status = true;
+                } else {
+                    arrow.fadeOut();
+                    form.fadeOut();
+                    status = false;
+                }
+            })
+        })
+
+    </script>
 {% endblock %}

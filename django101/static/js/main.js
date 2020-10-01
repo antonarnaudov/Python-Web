@@ -15,6 +15,24 @@ window.onload = function () {
         });
 }
 
+// $(document).ready(function () {
+//     const arrow = $(".arrow-up");
+//     const form = $(".login-form");
+//     let status = false;
+//
+//     $('#Login').click(function (event) {
+//         event.preventDefault();
+//         if (status === false) {
+//             arrow.fadeIn();
+//             form.fadeIn();
+//             status = true;
+//         } else {
+//             arrow.fadeOut();
+//             form.fadeOut();
+//             status = false;
+//         }
+//     })
+// })
 //
 // setTimeout(function () {
 //     alert('It works!')
