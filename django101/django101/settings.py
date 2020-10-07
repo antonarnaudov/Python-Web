@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django101',
     'django102',
     'django101_admin',
-    'Routelcom',
+    # 'Routelcom',
 ]
 
 MIDDLEWARE = [
