@@ -1,0 +1,19 @@
+section{
+    text-align: left;
+    /*position:absolute;*/
+    width:20%;
+    margin: 0 auto;
+}
+
+form{
+    flex-wrap: wrap;
+}
+
+
+input{
+    flex-wrap: wrap;
+}
+
+h1{
+    color:red;
+}

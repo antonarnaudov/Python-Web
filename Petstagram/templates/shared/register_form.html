@@ -1,20 +1,22 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Register form</title>
+    <link rel="stylesheet" href="{% static 'css/clear.css' %}">
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
 </head>
 <body>
+<section>
     <h1 style="text-decoration: underline">Register</h1>
 
-    <div class="textbox">
-        <input type="text" placeholder="Username" name="" id="">
-    </div>
-
-    <div class="textbox">
-        <input type="password" placeholder="Password" name="" id="">
-    </div>
-
-    <input class="btn" type="button" value="Register" name="" id="">
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button>Create</button>
+    </form>
+</section>
 </body>
 </html>
