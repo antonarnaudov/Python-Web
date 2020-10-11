@@ -7,11 +7,11 @@
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db.sqlite3</jdbc-url>
     </data-source>
-    <data-source source="LOCAL" name="PostgreSQL - postgres@localhost" uuid="04270e58-2272-455d-8193-ffc4a9930b20">
+    <data-source source="LOCAL" name="django101_db@localhost" uuid="9fc8e9a7-9ce8-4644-bfcb-2db00a4fe1bd">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/postgres</jdbc-url>
+      <jdbc-url>jdbc:postgresql://localhost:5432/django101_db</jdbc-url>
     </data-source>
   </component>
 </project>
