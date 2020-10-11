@@ -12,5 +12,11 @@
         </library>
       </libraries>
     </data-source>
+    <data-source source="LOCAL" name="petstagram_db@127.0.0.1" uuid="e8063163-d7c3-45f5-84f4-94ad6e142919">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/petstagram_db</jdbc-url>
+    </data-source>
   </component>
 </project>
