@@ -22,7 +22,7 @@ def inheritance(request):
 def index(request):
     title = 'SoftUni Django 101'
     users = User.objects.all()
-    games = Game.objects.all()
+    games = Game.objects.all_with_players_count()
 
     context = {
         'title': title,

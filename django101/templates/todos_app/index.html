@@ -1,0 +1,52 @@
+{% extends 'shared/base.html' %}
+{% load static %}
+
+{% block page_styles %}
+    <link rel="stylesheet" href="{% static 'css/todos_app.css' %}">
+{% endblock %}
+
+{% block title %}
+    Todos
+{% endblock %}
+
+
+{% block site_main_content %}
+
+    <div class="root">
+
+        <h1>Todos app</h1>
+
+        <ul class="todo-list">
+            {% for todo in todos %}
+
+                <li class="todo-list-item collapse-container">
+
+                    <h2 class="todo-title collapse-toggle">
+                        {{ todo.title }}
+                    </h2>
+
+                    <p class="todo-description collapsable">
+                        {{ todo.description }}
+                    </p>
+
+                    {% if todo.is_done %}
+                        <p class="green-text" style="color: green;">Done</p>
+                    {% else %}
+                        <p class="red-text" style="color: red;">Not Done</p>
+                    {% endif %}
+
+                </li>
+
+            {% endfor %}
+        </ul>
+    </div>
+
+
+    <div class="collapse-container">
+        <p class="collapse-toggle">Toggle</p>
+        <p class="collapsable">I collapse</p>
+    </div>
+
+    <script src="{% static "js/todos.js" %}"></script>
+
+{% endblock %}
