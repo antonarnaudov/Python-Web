@@ -5,15 +5,24 @@
     Pets
 {% endblock %}
 
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/pets_list.css' %}">
+{% endblock %}
+
 {% block main-content %}
     <h1>Pets list</h1>
+    <section>
+        <div class="container">
+            {% for pet in pets %}
+                <ul class="container-inside">
 
-    <ul>
-        {% for pet in pets %}
-            <li>{{ pet.id }} {{ pet.type }} {{ pet.name }}</li>
-            <li>Age {{ pet.age }}</li>
-            <li>{{ pet.description }}</li>
-{#            {{ pet.image_url }}#}
-        {% endfor %}
-    </ul>
+                    <li>{{ pet.type }} {{ pet.name }}</li>
+                    <li>Age {{ pet.age }}</li>
+                    <li>{{ pet.description }}</li>
+                    <img src="{{ pet.image_url }}" alt="{{ pet.name }} img">
+                </ul>
+            {% endfor %}
+        </div>
+    </section>
+
 {% endblock %}
