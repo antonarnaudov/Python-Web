@@ -1,0 +1,19 @@
+{% extends 'shared/site.html' %}
+{% load static %}
+
+{% block title %}
+    Pets
+{% endblock %}
+
+{% block main-content %}
+    <h1>Pets list</h1>
+
+    <ul>
+        {% for pet in pets %}
+            <li>{{ pet.id }} {{ pet.type }} {{ pet.name }}</li>
+            <li>Age {{ pet.age }}</li>
+            <li>{{ pet.description }}</li>
+{#            {{ pet.image_url }}#}
+        {% endfor %}
+    </ul>
+{% endblock %}
