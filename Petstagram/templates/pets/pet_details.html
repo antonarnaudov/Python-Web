@@ -5,6 +5,38 @@
     Pets details
 {% endblock %}
 
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/pet_details.css' %}">
+{% endblock %}
+
 {% block main-content %}
-    <h1>Pets details</h1>
+    <div class="pet-image">
+        <img class="pets-list-img" src="{{ pet.image_url }}" alt="{{ pet.name }} img">
+    </div>
+
+    <div class="pet-info">
+        <ul class="list-horizontal">
+            <li class="list-item">
+                <span class="underline">Type:</span> {{ pet.type }}
+            </li>
+            <li class="list-item">
+                <span class="underline">Name:</span> {{ pet.name }}
+            </li>
+            <li class="list-item">
+                <span class="underline">Age:</span> {{ pet.age }}
+            </li>
+        </ul>
+
+        <p>
+            Description: {{ pet.description }}
+        </p>
+
+        <div class="pet-buttons">
+            <a href="{% url 'like' pet.id %}">
+                <i class="far fa-heart"></i>
+            </a>
+        </div>
+
+        Likes: {{ pet.like_set.count }}
+    </div>
 {% endblock %}

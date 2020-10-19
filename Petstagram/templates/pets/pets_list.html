@@ -10,19 +10,21 @@
 {% endblock %}
 
 {% block main-content %}
-    <h1>Pets list</h1>
-    <section>
-        <div class="container">
-            {% for pet in pets %}
-                <ul class="container-inside">
-
-                    <li>{{ pet.type }} {{ pet.name }}</li>
-                    <li>Age {{ pet.age }}</li>
-                    <li>{{ pet.description }}</li>
-                    <img src="{{ pet.image_url }}" alt="{{ pet.name }} img">
-                </ul>
-            {% endfor %}
-        </div>
-    </section>
-
+    <h1>All pets</h1>
+    <ul class="list-horizontal list-pets">
+        {% for pet in pets %}
+            <li class="list-item">
+                <img src="{{ pet.image_url }}" alt="image of {{ pet.name }}">
+                <div class="pet-details">
+                    <p class="pet-info">{{ pet.type }} {{ pet.name }}, Age: {{ pet.age }}</p>
+                    <p class="pet-description">{{ pet.description }}</p>
+                    <div class="pet-buttons">
+                        <a class="button button-blue" href="{% url 'details' pet.id %}">
+                            Details
+                        </a>
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
 {% endblock %}

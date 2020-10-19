@@ -1027,6 +1027,7 @@ sequence|table|16838|16840|1
     </table>
     <table id="44" parent="13" name="django_content_type">
       <ObjectId>16657</ObjectId>
+      <Outdated>1</Outdated>
       <Owner>postgres</Owner>
       <StateNumber>613</StateNumber>
     </table>
