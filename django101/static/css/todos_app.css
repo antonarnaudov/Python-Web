@@ -5,10 +5,6 @@ h1, h2, ul, li, p, a {
     list-style: none;
 }
 
-.root {
-    text-align: center;
-}
-
 .todo-list {
 
 }
@@ -29,4 +25,8 @@ h1, h2, ul, li, p, a {
 
 .collapsed .collapsable {
     display: none;
+}
+
+form{
+    text-align: left;
 }

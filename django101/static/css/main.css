@@ -13,6 +13,10 @@ h1 {
     color: red;
 }
 
+.root {
+    text-align: center;
+}
+
 .highlightable {
     background-color: dimgray;
     color: violet;
