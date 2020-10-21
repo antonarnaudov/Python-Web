@@ -15,46 +15,72 @@
     <div class="root">
 
         <h1>Todos app</h1>
-        <form class="form" method="post" action="/">
-            <div class="form-group">
-                <label for="{{ todo_form.title.id_for_label }}">Todo's title</label>
-                <input type="text" class="form-control" id="{{ todo_form.title.id_for_label }}"
-                       aria-describedby="title_help">
-                <small id="title_help" class="form-text text-muted">Enter todo's title</small>
+        <div class="row">
+            <div class="col-3">
+                {% if pk %}
+                    <form class="form" method="post" action="{% url form_action pk %}">
+                {% else %}
+                    <form class="form" method="post" action="{% url form_action %}">
+                {% endif %}
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ todo_form.title.label_tag }}
+                    {#                        <input type="text" name="{{ todo_form.title.html_name }}" class="form-control"#}
+                    {#                               id="{{ todo_form.title.id_for_label }}"#}
+                    {#                               aria-describedby="title_help">#}
+                    {{ todo_form.title }}
+                    <small id="title_help" class="form-text text-muted">Enter todo's title</small>
+                    {{ todo_form.title.errors }}
+                </div>
+
+                <div class="form-group">
+                    {{ todo_form.description.label_tag }}
+                    {#                        <textarea name="todo_form.description.html_name" class="form-control"#}
+                    {#                                  id="{{ todo_form.description.id_for_label }}"#}
+                    {#                                  placeholder="{{ todo_form.description.widget.attrs.placeholder }}"#}
+                    {#                                  aria-describedby="description_help"></textarea>#}
+                    {{ todo_form.description }}
+                    {{ todo_form.description.errors }}
+                </div>
+
+                {{ todo_form.bot_catcher }}
+                <button class="btn btn-danger">Create</button>
+                </form>
             </div>
 
-            <div class="form-group">
-                <label for="{{ todo_form.description.id_for_label }}">Todo's title</label>
-                <textarea class="form-control" id="{{ todo_form.description.id_for_label }}"
-                          aria-describedby="description_help"></textarea>
+            <div class="col-9">
+                <ul class="todo-list">
+                    {% for todo in todos %}
+
+                        <li class="todo-list-item collapse-container">
+
+                            <h2 class="todo-title collapse-toggle">
+                                {{ todo.title }}
+                            </h2>
+
+                            <p class="todo-description collapsable">
+                                {{ todo.description }}
+                            </p>
+
+                            <form method="post" action="{% url 'mark todo done' todo.id %}">
+                                {% csrf_token %}
+                                <button>
+                                    {% if todo.is_done %}
+                                        <p class="green-text" style="color: green;">Done</p>
+                                    {% else %}
+                                        <p class="red-text" style="color: red;">Not Done</p>
+                                    {% endif %}
+                                </button>
+                            </form>
+
+                            <a href="{% url 'edit todo' todo.id %}">Edit</a>
+                        </li>
+
+                    {% endfor %}
+                </ul>
             </div>
+        </div>
 
-            <button class="btn btn-danger">Create</button>
-        </form>
-
-        <ul class="todo-list">
-            {% for todo in todos %}
-
-                <li class="todo-list-item collapse-container">
-
-                    <h2 class="todo-title collapse-toggle">
-                        {{ todo.title }}
-                    </h2>
-
-                    <p class="todo-description collapsable">
-                        {{ todo.description }}
-                    </p>
-
-                    {% if todo.is_done %}
-                        <p class="green-text" style="color: green;">Done</p>
-                    {% else %}
-                        <p class="red-text" style="color: red;">Not Done</p>
-                    {% endif %}
-
-                </li>
-
-            {% endfor %}
-        </ul>
     </div>
 
 
