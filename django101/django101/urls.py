@@ -20,5 +20,6 @@ urlpatterns = [
     path('', include('django102.urls')),
     path('routelcom/', include('Routelcom.urls')),
     path('admin/', admin.site.urls),
-    path('todos/', include('todos_app.urls'))
+    path('todos/', include('todos_app.urls')),
+    path('books/', include('books.urls'))
 ]

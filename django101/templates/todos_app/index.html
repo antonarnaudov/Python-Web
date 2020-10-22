@@ -74,6 +74,7 @@
                             </form>
 
                             <a href="{% url 'edit todo' todo.id %}">Edit</a>
+                            <a href="{% url 'delete todo' todo.id %}">Delete</a>
                         </li>
 
                     {% endfor %}

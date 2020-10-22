@@ -11,7 +11,7 @@ def index(request, form=None, form_action='create todo', pk=None):
         form = TodoForm()
 
     context = {
-        'todos': Todo.objects.all().order_by('title'),
+        'todos': Todo.objects.all().order_by('is_done'),
         'todo_form': form,
         'form_action': form_action,
         'pk': pk
@@ -32,11 +32,6 @@ def create_todo(request):
         todo.save()
         return redirect('todos index')
 
-    context = {
-        'todos': Todo.objects.all(),
-        'todo_form': form,
-    }
-
     return index(request, form)
 
 
@@ -55,6 +50,7 @@ def edit_todo(request, pk):
             todo.save()
         return index(request, form)
 
+
 @require_POST
 def mark_todo_done(request, pk):
     todo = Todo.objects.get(pk=pk)
@@ -64,4 +60,6 @@ def mark_todo_done(request, pk):
 
 
 def delete_todo(request, pk):
-    pass
+    todo = Todo.objects.get(pk=pk)
+    todo.delete()
+    return redirect('todos index')
