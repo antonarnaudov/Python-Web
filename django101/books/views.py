@@ -1,28 +1,8 @@
-from django import forms
 # Create your views here.
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
+from books.forms import BookForm
 from books.models import Book
-
-
-class BookForm(forms.ModelForm):
-    class Meta:
-        model = Book
-        fields = '__all__'
-
-        widgets = {
-            # 'title': forms.CharField(
-            #     required=True,
-            #     attrs={
-            #         'class': 'form-control',
-            #         'placeholder': 'My title',
-            #     }
-            # ),
-            # 'description': forms.TextInput(attrs={
-            #     'class': 'form-control',
-            #     'placeholder': 'Enter description',
-            # })
-        }
 
 
 def index(request):
@@ -40,7 +20,14 @@ def create(request):
         }
         return render(request, 'books_app/create.html', context)
     else:
-        pass
+        form = BookForm(request.POST)
+        if form.is_valid():
+            form.save()
+            # return redirect('books index')
+        context = {
+            'form': form,
+        }
+        return render(request, 'books_app/create.html', context)
 
 
 def edit(request, pk):

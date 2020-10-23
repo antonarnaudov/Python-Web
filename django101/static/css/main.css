@@ -7,10 +7,10 @@ body {
 }
 
 h1 {
-    padding-left: 250px;
     position: relative;
     background-color: burlywood;
     color: red;
+    margin: 0;
 }
 
 .root {
