@@ -1043,6 +1043,7 @@ sequence|table|16852|16854|1
     </table>
     <table id="46" parent="13" name="books_book">
       <ObjectId>16854</ObjectId>
+      <Outdated>1</Outdated>
       <Owner>postgres</Owner>
       <StateNumber>687</StateNumber>
     </table>
