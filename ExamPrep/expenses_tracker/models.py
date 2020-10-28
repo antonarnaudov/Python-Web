@@ -8,3 +8,6 @@ class Expenses(models.Model):
     image_url = models.URLField()
     description = models.TextField()
     price = models.FloatField()
+
+    def __str__(self):
+        return f'{self.title} ID: {self.id}'

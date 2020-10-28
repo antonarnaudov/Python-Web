@@ -121,6 +121,10 @@ input[type=submit]:hover,
     height: 22px;
 }
 
+.button.delete.profile{
+    height: 50px;
+}
+
 .expenses-list {
     display: flex;
     align-items: flex-start;
