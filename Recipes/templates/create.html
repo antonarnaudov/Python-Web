@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Recipes</title>
+</head>
+
+<body>
+
+<nav>
+    <ul>
+        <img src="/static/images/chef.png" alt="chef">
+        <li class="title"><a href="/">Recipes</a></li>
+        <li><a href="{% url 'create' %}">Add Recipe</a></li>
+    </ul>
+</nav>
+<div class="container">
+
+    <h1>Create Recipe</h1>
+    <div class="items-container">
+        <div class="item">
+            <form method="POST" action="{% url 'create' %}">
+                {% csrf_token %}
+
+                {# Слагам лейбъли за да не чупя css-a #}
+
+                <label for="title">{{ form.title.label }}</label>
+                {{ form.title }}
+
+                <label for="image_url">{{ form.image_url.label }}</label>
+                {{ form.image_url }}
+
+                <label for="description">{{ form.description.label }}</label>
+                {{ form.description }}
+
+                <label for="ingredients">{{ form.ingredients.label }}</label>
+                {{ form.ingredients }}
+
+                <label for="time">{{ form.time.label }}</label>
+                {{ form.time }}
+
+                <input type="submit" value="Create">
+            </form>
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+</html>
